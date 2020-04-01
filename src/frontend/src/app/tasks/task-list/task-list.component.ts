@@ -9,7 +9,7 @@ import { TaskService } from '../task.service';
 })
 export class TaskListComponent implements OnInit {
 
-  tasks: Task[] = [ {completed:true , dueDate: "2222-22-22", name: "getThisDone", id: 1}];
+  tasks: Task[] = [];
 
   constructor(private taskService: TaskService) { }
 
