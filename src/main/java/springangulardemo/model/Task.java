@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.time.LocalDate;
 
@@ -16,7 +17,7 @@ public class Task {
     public Task() {}
 
     private String name;
-    @Id
+    @Id @GeneratedValue
     private Long id;
     private Boolean completed;
 

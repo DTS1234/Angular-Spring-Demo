@@ -9,28 +9,32 @@ import { TaskService } from '../task.service';
 })
 export class TaskListComponent implements OnInit {
 
-  tasks: Task[] = [];
+  tasks: Task[] = [ {completed:true , dueDate: "2222-22-22", name: "getThisDone", id: 1}];
 
   constructor(private taskService: TaskService) { }
 
   ngOnInit(){
-    return this.taskService.getTasks().
-    subscribe( (tasks : any[]) => {
-      this.tasks = tasks;
-    },
-    (error) => console.log(error));
+    
+    this.taskService.getTasks()
+      .subscribe( 
+        (tasks : any[]) => {
+          this.tasks = tasks;
+        },
+        (error) => console.log(error)
+    );
+
+    this.taskService.onTaskAdded.subscribe(
+      (task: Task) => this.tasks.push(task)
+    );
+
   }
 
   getDueDateLabel(task : Task){
-
-    return task.completed ? 'label-success' : 'label-primary';
-
+    return task.completed ? 'badge-success' : 'badge-danger';
   }
 
   onTaskChange(event, task: Task){
-
-    //this.taskService.saveTask(task, event.target.checked).subscribe();
-
+    this.taskService.saveTask(task, event.target.checked).subscribe();
   }
 
 }

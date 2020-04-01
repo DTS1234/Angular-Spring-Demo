@@ -1,0 +1,14 @@
+.completed{
+    margin-left: 4px;
+    text-decoration: line-through;
+
+}
+
+.name{
+    margin-left: 5px;
+    font-size: 20px;
+}
+
+.badge{
+    font-size: 20px;
+}

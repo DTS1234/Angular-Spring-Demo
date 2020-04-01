@@ -1,16 +1,16 @@
 <ul class="list-group">
 
-  <li *ngFor="let task of tasks" class="list-group-item">Item 1
+  <li *ngFor="let task of tasks" class="list-group-item">
 
   <div class="task-checkbox">
 
-    <input type="checkbox"
+    <input type="checkbox" id="done"
     class="list-child"
     (change)="onTaskChange($event, task)"
     [checked]="task.completed">
 
-    <span ngClass="{{task.completed ? 'name completed' : 'name'}}">{{task.name}}</span>
-    <span class="label {{ getDueDateLabel(task) }} pull-right"> {{task.dueDate}} </span>
+    <label ngClass="{{task.completed ? 'name completed' : 'name'}}" for="done">{{ task.name }}</label>
+    <label class="badge {{ getDueDateLabel(task) }} float-right input-group-text"> {{task.dueDate}} </label>
 
   </div>
 
